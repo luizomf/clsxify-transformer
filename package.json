@@ -1,0 +1,42 @@
+{
+  "name": "clsxify-transformer",
+  "displayName": "Clsxify Transformer",
+  "description": "Converte espaços em strings para um array (clsx)",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:extension.clsxify"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.clsxify",
+        "title": "Converter espaços em array de strings (clsx)"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "extension.clsxify",
+          "when": "editorHasSelection",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "tsc -p ./",
+    "package": "npx vsce package"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.70.0",
+    "typescript": "^4.8.0",
+    "vsce": "^2.10.0"
+  }
+}
